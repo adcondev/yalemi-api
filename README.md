@@ -1,13 +1,18 @@
-# Yalemi API
+# Yalemi API 🐦
 
-Yalemi API is a backend service for a Twitter-like social network. It is built with FastAPI and SQLModel, providing a robust and efficient platform for social interactions.
+A social media backend API inspired by Twitter. Built with FastAPI for speed and SQLModel for type-safe database operations.
 
 ## Features
 
-- User authentication and authorization with OAuth2.
-- CRUD operations for user profiles.
-- CRUD operations for posts (referred to as "May").
-- Real-time updates with WebSockets (if applicable).
+- 🔐 **Authentication**: User authentication and authorization with OAuth2.
+- 📝 **Posts**: CRUD operations for user profiles. CRUD operations for posts (referred to as "May").
+- 💬 **Notifications**: Real-time updates with WebSockets (if applicable).
+
+## Tech Stack
+
+- **Framework**: FastAPI
+- **ORM**: SQLModel
+- **Database**: PostgreSQL
 
 ## Getting Started
 
