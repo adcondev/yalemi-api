@@ -57,7 +57,7 @@ graph TD
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/your-username/social-media-api.git
     ```
 2.  **Install dependencies:**
     ```sh
