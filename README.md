@@ -20,7 +20,7 @@ This project is a robust and scalable social media backend API, inspired by plat
 - **Voting System:** Users can upvote, downvote, or set a neutral vote on posts.
 - **Data Validation:** Pydantic-based data validation for robust and error-free data handling.
 
-##  diagrama Application Architecture
+## 📊 Application Architecture
 
 ```mermaid
 graph TD
