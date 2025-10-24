@@ -57,7 +57,7 @@ graph TD
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/social-media-api.git
+    git clone https://github.com/your-username/yalemi-api.git
     ```
 2.  **Install dependencies:**
     ```sh
