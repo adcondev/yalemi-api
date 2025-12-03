@@ -1,97 +1,88 @@
-# Social Media API 🐦
+# Yalemi API
 
-![Project Banner](https://via.placeholder.com/800x200.png?text=Social+Media+API)
+![Project Logo](https://via.placeholder.com/150)
 
-[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-green.svg)](https://fastapi.tiangolo.com/)
-[![SQLModel](https://img.shields.io/badge/SQLModel-0.0.14-blue.svg)](https://sqlmodel.tiangolo.com/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13.0-blue.svg)](https://www.postgresql.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+> **Y**et **A**nother **L**earning **E**xperience **M**ade **I**n **P**ython.
 
-## 🚀 Project Overview
+A robust Social Media REST API built with FastAPI, SQLModel, and PostgreSQL. This project demonstrates a scalable backend architecture featuring user authentication, content management, and interaction systems.
 
-This project is a robust and scalable social media backend API, inspired by platforms like Twitter. It is built with a modern Python stack, leveraging FastAPI for high-performance and asynchronous request handling, and SQLModel for type-safe, intuitive database interactions with a PostgreSQL backend. The API provides a comprehensive set of features for user management, post creation, and engagement, all secured with OAuth2 authentication.
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 
-## ✨ Key Features
-
-- **User Authentication:** Secure user registration and login using OAuth2 with JWT tokens.
-- **CRUD Operations for Users:** Full support for creating, reading, updating, and deleting user profiles.
-- **Post Management:** Users can create, view, update, and delete their own posts (referred to as "Mayz" in the codebase).
-- **Voting System:** Users can upvote, downvote, or set a neutral vote on posts.
-- **Data Validation:** Pydantic-based data validation for robust and error-free data handling.
-
-## 📊 Application Architecture
+## 🏗️ Architecture
 
 ```mermaid
 graph TD
-    A[Client] --> B{FastAPI};
-    B --> C[Routers];
-    C --> D{Authentication};
-    C --> E{Users};
-    C --> F{Posts};
-    C --> G{Votes};
-    D --> H[OAuth2];
-    E --> I[SQLModel];
-    F --> I;
-    G --> I;
-    I --> J[PostgreSQL];
+    Client[Client Application] -->|HTTP / JSON| API[FastAPI Gateway]
+    
+    subgraph "Application Layer"
+        API --> Auth[Auth Router]
+        API --> User[User Router]
+        API --> May[May (Post) Router]
+        API --> Vote[Vote Router]
+    end
+    
+    subgraph "Data Layer"
+        Auth --> ORM[SQLModel ORM]
+        User --> ORM
+        May --> ORM
+        Vote --> ORM
+        ORM --> DB[(PostgreSQL Database)]
+    end
 ```
 
-## 🛠️ Tech Stack
+## 🚀 Features
 
-- **Backend:** Python, FastAPI
-- **Database:** PostgreSQL
-- **ORM:** SQLModel, SQLAlchemy
-- **Authentication:** OAuth2, JWT (python-jose), Passlib (bcrypt)
-- **Data Validation:** Pydantic
-- **Server:** Uvicorn
+- **User Management**: Registration, profile updates, and secure password handling.
+- **Authentication**: JWT-based OAuth2 authentication flow.
+- **Content System**: Create, read, and manage "Mays" (posts).
+- **Voting System**: Upvote/downvote functionality with duplicate prevention.
+- **Documentation**: Auto-generated Swagger UI and ReDoc.
 
-## 📦 Getting Started
+## 🛠️ Installation
 
-### Prerequisites
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/adcondev/yalemi-api.git
+   cd yalemi-api
+   ```
 
-- Python 3.8+
-- PostgreSQL
+2. **Create a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-### Configuration
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-The application requires the following environment variables to be set in a `.env` file in the root directory:
+4. **Environment Configuration**
+   Copy `.env.example` to `.env` and update the values:
+   ```bash
+   cp .env.example .env
+   ```
+   *Make sure you have a PostgreSQL instance running and accessible.*
 
-| Variable | Description | Example |
-| :--- | :--- | :--- |
-| `DBMS` | Database management system | `postgresql` |
-| `USERNAME` | Database username | `postgres` |
-| `PASSWORD` | Database password | `password` |
-| `HOSTNAME` | Database host | `localhost` |
-| `PORT` | Database port | `5432` |
-| `DATABASE` | Database name | `yalemi` |
-| `SECRET_KEY` | Secret key for JWT | `your_secret_key` |
-| `ALGORITHM` | Algorithm for JWT | `HS256` |
-| `EXPIRE_MINUTES` | Token expiration time | `30` |
+## 🏃 Usage
 
-### Installation
+Start the development server:
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/your-username/yalemi-api.git
-    ```
-2.  **Install dependencies:**
-    ```sh
-    pip install -r requirements.txt
-    ```
-3.  **Set up environment variables:**
-    Create a `.env` file in the root directory and populate it with the required variables (see Configuration above).
-4.  **Run the application:**
-    ```sh
-    uvicorn app.main:app --reload
-    ```
-5.  **Access the API documentation:**
-    Once the server is running, you can access the interactive API documentation at `http://localhost:8000/docs`.
+```bash
+uvicorn app.main:app --reload
+```
+
+The API will be available at `http://localhost:8000`.
+- **Interactive Docs (Swagger UI):** `http://localhost:8000/docs`
+- **Alternative Docs (ReDoc):** `http://localhost:8000/redoc`
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](CONTRIBUTING.MD) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## 📜 License
+## 📄 License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
