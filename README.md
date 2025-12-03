@@ -20,7 +20,7 @@ graph TD
     subgraph "Application Layer"
         API --> Auth[Auth Router]
         API --> User[User Router]
-        API --> May[May (Post) Router]
+        API --> May["May (Post) Router"]
         API --> Vote[Vote Router]
     end
     
