@@ -24,17 +24,23 @@ Developed a full-stack social media backend API inspired by Twitter, using a mod
 ### Authentication & Security
 
 - **OAuth2 & JWT:** Implemented a secure authentication system using OAuth2 and JSON Web Tokens (JWT) for stateless authentication.
-- **Password Hashing:** Secured user passwords using bcrypt for hashing and verification.
+- **Password Hashing:** Secured user passwords using bcrypt (via Passlib) for hashing and verification.
+
+### DevOps & Tools
+
+- **CI/CD:** Configured GitHub Actions workflows for automated release management and changelog generation.
+- **Git:** Utilized Git for version control and collaborative development.
 
 ### API Design & Development
 
 - **RESTful API Design:** Designed and implemented a RESTful API with clear and consistent endpoints.
 - **API Documentation:** Automatically generated interactive API documentation using Swagger UI.
-- **Testing:** (Implicit) Experience with testing API endpoints (e.g., using Postman).
+- **Manual API Testing:** Verified API endpoints and logic using tools like Postman.
 
 ## 🏆 Major Achievements
 
 - **Implemented a Secure Authentication System:** Designed and implemented a robust authentication and authorization system using OAuth2 with JWT, ensuring secure access to the API. This included token generation, validation, and password hashing.
+- **Developed Complex Voting Logic:** Implemented a flexible voting system allowing users to upvote, downvote, or remove votes (neutral), with automatic handling of vote switching (e.g., changing from upvote to downvote).
 - **Developed a Full-Featured RESTful API:** Built a comprehensive set of RESTful endpoints for user management, post creation, and voting, with full CRUD functionality.
 - **Designed a Relational Database Schema:** Created a well-structured and normalized database schema in PostgreSQL, with clear relationships between users, posts, and votes.
 - **Ensured Data Integrity with Pydantic:** Leveraged Pydantic for strict data validation and serialization, preventing common data-related errors and improving the API's reliability.

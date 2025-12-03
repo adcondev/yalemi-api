@@ -16,7 +16,7 @@ This project is a robust and scalable social media backend API, inspired by plat
 
 - **User Authentication:** Secure user registration and login using OAuth2 with JWT tokens.
 - **CRUD Operations for Users:** Full support for creating, reading, updating, and deleting user profiles.
-- **Post Management:** Users can create, view, update, and delete their own posts (referred to as "Mayz").
+- **Post Management:** Users can create, view, update, and delete their own posts (referred to as "Mayz" in the codebase).
 - **Voting System:** Users can upvote, downvote, or set a neutral vote on posts.
 - **Data Validation:** Pydantic-based data validation for robust and error-free data handling.
 
@@ -42,7 +42,7 @@ graph TD
 - **Backend:** Python, FastAPI
 - **Database:** PostgreSQL
 - **ORM:** SQLModel, SQLAlchemy
-- **Authentication:** OAuth2, JWT
+- **Authentication:** OAuth2, JWT (python-jose), Passlib (bcrypt)
 - **Data Validation:** Pydantic
 - **Server:** Uvicorn
 
@@ -52,6 +52,22 @@ graph TD
 
 - Python 3.8+
 - PostgreSQL
+
+### Configuration
+
+The application requires the following environment variables to be set in a `.env` file in the root directory:
+
+| Variable | Description | Example |
+| :--- | :--- | :--- |
+| `DBMS` | Database management system | `postgresql` |
+| `USERNAME` | Database username | `postgres` |
+| `PASSWORD` | Database password | `password` |
+| `HOSTNAME` | Database host | `localhost` |
+| `PORT` | Database port | `5432` |
+| `DATABASE` | Database name | `yalemi` |
+| `SECRET_KEY` | Secret key for JWT | `your_secret_key` |
+| `ALGORITHM` | Algorithm for JWT | `HS256` |
+| `EXPIRE_MINUTES` | Token expiration time | `30` |
 
 ### Installation
 
@@ -64,7 +80,7 @@ graph TD
     pip install -r requirements.txt
     ```
 3.  **Set up environment variables:**
-    Create a `.env` file in the root directory and populate it with the required variables. You can use `.env.example` as a template.
+    Create a `.env` file in the root directory and populate it with the required variables (see Configuration above).
 4.  **Run the application:**
     ```sh
     uvicorn app.main:app --reload
